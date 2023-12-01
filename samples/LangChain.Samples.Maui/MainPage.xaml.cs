@@ -1,24 +1,66 @@
-﻿namespace LangChain.Samples.Maui;
+﻿using System.Collections.ObjectModel;
+using System.Globalization;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Media;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
-public partial class MainPage : ContentPage
+namespace LangChain.Samples.Maui;
+
+[ObservableObject]
+public partial class MainPage
 {
-	int count = 0;
-
+	private static string[] DefaultLanguages { get; } = {
+		"en-US",
+	};
+	
+	[ObservableProperty]
+	private ObservableCollection<string> _languages = new(DefaultLanguages);
+	
+	[ObservableProperty]
+	private string _selectedLanguage = DefaultLanguages.First();
+	
+	[ObservableProperty]
+	private string _recognitionText = string.Empty;
+	
 	public MainPage()
 	{
 		InitializeComponent();
+		BindingContext = this;
 	}
-
-	private void OnCounterClicked(object sender, EventArgs e)
+	
+	[RelayCommand]
+	private async Task Listen(CancellationToken cancellationToken)
 	{
-		count++;
+		try
+		{
+			var isGranted = await SpeechToText.Default.RequestPermissions(cancellationToken);
+			if (!isGranted)
+			{
+				await Toast.Make("Permission not granted").Show(CancellationToken.None);
+				return;
+			}
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+			var recognition = await SpeechToText.ListenAsync(
+				CultureInfo.GetCultureInfo(SelectedLanguage),
+				new Progress<string>(partialText =>
+				{
+					RecognitionText += partialText + " ";
+				}), cancellationToken);
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
+			if (recognition.IsSuccessful)
+			{
+				RecognitionText = recognition.Text;
+			}
+			else
+			{
+				await Toast.Make(recognition.Exception?.Message ?? "Unable to recognize speech").Show(CancellationToken.None);
+			}
+		}
+		catch (Exception e)
+		{
+			await Toast.Make(e.Message).Show(CancellationToken.None);
+		}
 	}
 }
 
