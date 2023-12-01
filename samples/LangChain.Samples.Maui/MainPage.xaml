@@ -22,6 +22,15 @@
             <Label Text="{Binding RecognitionText}" />
 
             <Button
+                Command="{Binding PlaySomeTextCommand}"
+                Text="Play" />
+            <Button
+                Command="{Binding StartRecordingCommand}"
+                Text="Start Recording" />
+            <Button
+                Command="{Binding StopRecordingCommand}"
+                Text="Stop Recording" />
+            <Button
                 Command="{Binding ListenCommand}"
                 Text="Listen" />
         </VerticalStackLayout>

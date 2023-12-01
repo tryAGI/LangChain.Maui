@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Plugin.Maui.Audio;
 
 namespace LangChain.Samples.Maui;
 
@@ -20,6 +21,10 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+		builder.Services
+			.AddSingleton(AudioManager.Current)
+			.AddTransient<MainPage>()
+			;
 		
 		return builder.Build();
 	}
