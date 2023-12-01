@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0;net8.0-android;net8.0-ios;net8.0-maccatalyst;net8.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks>
+		<EnableWindowsTargeting>true</EnableWindowsTargeting>
+		<UseMaui>true</UseMaui>
+	</PropertyGroup>
+
+	<ItemGroup Label="AssemblyInfo">
+		<AssemblyAttribute Include="Microsoft.Maui.Controls.XmlnsPrefix">
+			<_Parameter1>https://www.langchain.com/</_Parameter1>
+			<_Parameter2>langchain</_Parameter2>
+		</AssemblyAttribute>
+		<AssemblyAttribute Include="Microsoft.Maui.Controls.XmlnsDefinition">
+			<_Parameter1>https://www.langchain.com/</_Parameter1>
+			<_Parameter2>LangChain.Maui</_Parameter2>
+		</AssemblyAttribute>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+	</ItemGroup>
+
+</Project>

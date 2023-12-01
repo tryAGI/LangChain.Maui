@@ -1,0 +1,54 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E793AF18-4371-4EBD-96FC-195EB1798855}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		src\Directory.Build.props = src\Directory.Build.props
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		LICENSE = LICENSE
+		README.md = README.md
+		.github\workflows\pull-request.yml = .github\workflows\pull-request.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{61E7E11E-4558-434C-ACE8-06316A3097B3}"
+	ProjectSection(SolutionItems) = preProject
+		src\libs\Directory.Build.props = src\libs\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AAA11B78-2764-4520-A97E-46AA7089A588}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{2DBC1BA8-4227-4EE2-BDB7-3AED178EA094}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LangChain.Samples.Maui", "samples\LangChain.Samples.Maui\LangChain.Samples.Maui.csproj", "{8682E8AC-F392-4ADB-BB53-02050F9D3151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LangChain.Providers.Maui", "src\libs\LangChain.Providers.Maui\LangChain.Providers.Maui.csproj", "{D5FFA148-C87C-43AE-8A69-8561080EA7D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8682E8AC-F392-4ADB-BB53-02050F9D3151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8682E8AC-F392-4ADB-BB53-02050F9D3151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8682E8AC-F392-4ADB-BB53-02050F9D3151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8682E8AC-F392-4ADB-BB53-02050F9D3151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5FFA148-C87C-43AE-8A69-8561080EA7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FFA148-C87C-43AE-8A69-8561080EA7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FFA148-C87C-43AE-8A69-8561080EA7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FFA148-C87C-43AE-8A69-8561080EA7D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8682E8AC-F392-4ADB-BB53-02050F9D3151} = {2DBC1BA8-4227-4EE2-BDB7-3AED178EA094}
+		{D5FFA148-C87C-43AE-8A69-8561080EA7D7} = {61E7E11E-4558-434C-ACE8-06316A3097B3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CED9A020-DBA5-4BE6-8096-75E528648EC1}
+	EndGlobalSection
+EndGlobal
