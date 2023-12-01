@@ -9,6 +9,7 @@ jobs:
     name: Build abd test
     uses: HavenDV/workflows/.github/workflows/dotnet_build-test-publish.yml@main
     with:
+      os: windows-latest
       generate-build-number: false
       conventional-commits-publish-conditions: false
       workloads: maui
