@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Media;
 using Microsoft.Extensions.Logging;
 using Plugin.Maui.Audio;
 
@@ -23,7 +24,14 @@ public static class MauiProgram
 #endif
 		builder.Services
 			.AddSingleton(AudioManager.Current)
-			.AddTransient<MainPage>()
+			.AddSingleton(SpeechToText.Default)
+			
+			.AddTransient<ViewModels.SpeechToTextViewModel>()
+			.AddTransient<ViewModels.PlayRecordViewModel>()
+			
+			.AddTransient<Views.StartPage>()
+			.AddTransient<Views.SpeechToTextPage>()
+			.AddTransient<Views.PlayRecordPage>()
 			;
 		
 		return builder.Build();

@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
+    FlyoutBehavior="Flyout"
+    Title="LangChain.Samples.Maui"
     x:Class="LangChain.Samples.Maui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:LangChain.Samples.Maui"
-    Shell.FlyoutBehavior="Disabled"
-    Title="LangChain.Samples.Maui">
+    xmlns:views="clr-namespace:LangChain.Samples.Maui.Views"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate views:StartPage}"
+        Route="StartPage"
+        Title="Start" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate views:PlayRecordPage}"
+        Route="PlayRecordPage"
+        Title="Play/Record" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate views:SpeechToTextPage}"
+        Route="SpeechToTextPage"
+        Title="Speech to Text" />
 
 </Shell>

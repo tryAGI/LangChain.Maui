@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LangChain.Samples.Maui.Views.PlayRecordPage"
+    x:DataType="viewModels:PlayRecordViewModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:viewModels="clr-namespace:LangChain.Samples.Maui.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <VerticalStackLayout
+            HorizontalOptions="Center"
+            Margin="25"
+            Spacing="25"
+            VerticalOptions="Center">
+
+            <Button Command="{Binding PlaySomeTextCommand}" Text="Play" />
+            <Button Command="{Binding StartRecordingCommand}" Text="Start Recording" />
+            <Button Command="{Binding StopRecordingCommand}" Text="Stop Recording" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
