@@ -1,58 +1,97 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="LangChain.Samples.Maui.Views.RetrievalAugmentedGenerationPage"
-    x:DataType="viewModels:RetrievalAugmentedGenerationViewModel"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:LangChain.Samples.Maui.ViewModels"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    x:DataType="viewModels:RetrievalAugmentedGenerationViewModel">
 
     <ScrollView>
-        <VerticalStackLayout
-            HorizontalOptions="Center"
-            Margin="25"
-            Spacing="25"
-            VerticalOptions="Center">
-
-            <Label HorizontalOptions="Center" Text="Enter OpenAI API key:" />
-            <Entry IsPassword="True" Text="{Binding ApiKey}" />
-
-            <Label HorizontalOptions="Center" Text="Select PDF:" />
-            <HorizontalStackLayout
+        <Grid
+            Padding="5"
+            ColumnDefinitions="*,*">
+            <VerticalStackLayout
+                Grid.Column="0"
+                Margin="25"
                 HorizontalOptions="Center"
                 Spacing="25"
                 VerticalOptions="Center">
 
-                <Button Command="{Binding SelectPdfFromComputerCommand}" Text="Select PDF From Computer" />
+                <Label
+                    HorizontalOptions="Center"
+                    Text="Enter OpenAI API key:" />
+                <Entry
+                    IsPassword="True"
+                    Text="{Binding ApiKey}" />
 
-                <VerticalStackLayout
+                <Label
+                    HorizontalOptions="Center"
+                    Text="Select PDF:" />
+                <HorizontalStackLayout
                     HorizontalOptions="Center"
                     Spacing="25"
                     VerticalOptions="Center">
 
-                    <Label HorizontalOptions="Center" Text="Select PDF from URL:" />
-                    <Entry Text="{Binding PdfUrl}" />
+                    <Button
+                        Command="{Binding SelectPdfFromComputerCommand}"
+                        Text="Select PDF From Computer" />
 
-                    <Button Command="{Binding SelectPdfFromUrlCommand}" Text="Select PDF From Url" />
+                    <VerticalStackLayout
+                        HorizontalOptions="Center"
+                        Spacing="25"
+                        VerticalOptions="Center">
 
-                </VerticalStackLayout>
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="Select PDF from URL:" />
+                        <Entry Text="{Binding PdfUrl}" />
 
-            </HorizontalStackLayout>
+                        <Button
+                            Command="{Binding SelectPdfFromUrlCommand}"
+                            Text="Select PDF From Url" />
 
-            <Label HorizontalOptions="Center" Text="Enter question:" />
-            <Editor HeightRequest="200" Text="{Binding Question}" />
+                    </VerticalStackLayout>
 
-            <Button Command="{Binding AskQuestionCommand}" Text="Ask question" />
+                </HorizontalStackLayout>
 
-            <Label HorizontalOptions="Center" Text="Answer:" />
-            <Editor
-                HeightRequest="200"
-                HorizontalOptions="Center"
-                Text="{Binding Answer}" />
+                <Label
+                    HorizontalOptions="Center"
+                    Text="Enter question:" />
+                <Editor
+                    HeightRequest="200"
+                    Text="{Binding Question}" />
 
-            <Label HorizontalOptions="Center" Text="Current Status:" />
-            <Editor HeightRequest="200" Text="{Binding Status}" />
+                <Button
+                    Command="{Binding AskQuestionCommand}"
+                    Text="Ask question" />
 
-        </VerticalStackLayout>
+                <Label
+                    HorizontalOptions="Center"
+                    Text="Answer:" />
+                <Editor
+                    HeightRequest="200"
+                    Text="{Binding Answer}" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    Text="Current Status:" />
+                <Editor
+                    HeightRequest="200"
+                    Text="{Binding Status}" />
+            </VerticalStackLayout>
+
+            <Grid
+                Grid.Column="1"
+                RowDefinitions="50,*">
+                <Label
+                    Grid.Row="0"
+                    HorizontalOptions="Center"
+                    Text="Latest prompt:" />
+                <Editor
+                    Grid.Row="1"
+                    Text="{Binding Prompt}" />
+            </Grid>
+        </Grid>
     </ScrollView>
 
 </ContentPage>

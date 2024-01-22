@@ -77,17 +77,4 @@
 	  <ProjectReference Include="..\..\src\libs\LangChain.Providers.Maui\LangChain.Providers.Maui.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <MauiXaml Update="Views\RetrievalAugmentedGenerationPage.xaml">
-	    <SubType>Designer</SubType>
-	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="Views\RetrievalAugmentedGenerationPage.xaml.cs">
-	    <DependentUpon>RetrievalAugmentedGenerationPage.xaml</DependentUpon>
-	    <SubType>Code</SubType>
-	  </Compile>
-	</ItemGroup>
-
 </Project>
