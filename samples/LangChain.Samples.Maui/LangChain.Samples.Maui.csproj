@@ -62,16 +62,32 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.6" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.6" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Plugin.Maui.Audio" Version="3.0.0-preview2" />
+		<PackageReference Include="LangChain" Version="0.12.3-dev.92" />
+		<PackageReference Include="LangChain.Databases.InMemory" Version="0.12.3-dev.92" />
+		<PackageReference Include="LangChain.Sources.Pdf" Version="0.12.3-dev.92" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\src\libs\LangChain.Providers.Maui\LangChain.Providers.Maui.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\RetrievalAugmentedGenerationPage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\RetrievalAugmentedGenerationPage.xaml.cs">
+	    <DependentUpon>RetrievalAugmentedGenerationPage.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

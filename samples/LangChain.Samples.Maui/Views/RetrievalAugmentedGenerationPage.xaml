@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LangChain.Samples.Maui.Views.RetrievalAugmentedGenerationPage"
+    x:DataType="viewModels:RetrievalAugmentedGenerationViewModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:viewModels="clr-namespace:LangChain.Samples.Maui.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <VerticalStackLayout
+            HorizontalOptions="Center"
+            Margin="25"
+            Spacing="25"
+            VerticalOptions="Center">
+
+            <Label HorizontalOptions="Center" Text="Enter OpenAI API key:" />
+            <Entry IsPassword="True" Text="{Binding ApiKey}" />
+
+            <Label HorizontalOptions="Center" Text="Select PDF:" />
+            <HorizontalStackLayout
+                HorizontalOptions="Center"
+                Spacing="25"
+                VerticalOptions="Center">
+
+                <Button Command="{Binding SelectPdfFromComputerCommand}" Text="Select PDF From Computer" />
+
+                <VerticalStackLayout
+                    HorizontalOptions="Center"
+                    Spacing="25"
+                    VerticalOptions="Center">
+
+                    <Label HorizontalOptions="Center" Text="Select PDF from URL:" />
+                    <Entry Text="{Binding PdfUrl}" />
+
+                    <Button Command="{Binding SelectPdfFromUrlCommand}" Text="Select PDF From Url" />
+
+                </VerticalStackLayout>
+
+            </HorizontalStackLayout>
+
+            <Label HorizontalOptions="Center" Text="Enter question:" />
+            <Editor HeightRequest="200" Text="{Binding Question}" />
+
+            <Button Command="{Binding AskQuestionCommand}" Text="Ask question" />
+
+            <Label HorizontalOptions="Center" Text="Answer:" />
+            <Editor
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                Text="{Binding Answer}" />
+
+            <Label HorizontalOptions="Center" Text="Current Status:" />
+            <Editor HeightRequest="200" Text="{Binding Status}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

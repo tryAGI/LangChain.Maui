@@ -22,4 +22,9 @@
         Route="SpeechToTextPage"
         Title="Speech to Text" />
 
+    <ShellContent
+        ContentTemplate="{DataTemplate views:RetrievalAugmentedGenerationPage}"
+        Route="RetrievalAugmentedGenerationPage"
+        Title="Retrieval Augmented Generation" />
+
 </Shell>
