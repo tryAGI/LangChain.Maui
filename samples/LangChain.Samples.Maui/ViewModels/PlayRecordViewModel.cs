@@ -11,11 +11,11 @@ public partial class PlayRecordViewModel(
 	
 	[ObservableProperty]
 	[NotifyCanExecuteChangedFor(nameof(StartRecordingCommand))]
-	[NotifyCanExecuteChangedFor(nameof(StopRecordingCommand))]
+	[NotifyCanExecuteChangedFor(nameof(StopRecordingAndPlayRecordedDataCommand))]
 	private bool _isRecording;
 
 	[RelayCommand]
-	private async Task PlaySomeText(CancellationToken cancellationToken)
+	private async Task PlaySomeMp3(CancellationToken cancellationToken)
 	{
 		try
 		{
@@ -50,7 +50,7 @@ public partial class PlayRecordViewModel(
 	private bool CanStopRecording() => IsRecording;
 	
 	[RelayCommand(CanExecute = nameof(CanStopRecording))]
-	private async Task StopRecording(CancellationToken cancellationToken)
+	private async Task StopRecordingAndPlayRecordedData(CancellationToken cancellationToken)
 	{
 		try
 		{

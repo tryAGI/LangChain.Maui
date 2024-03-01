@@ -1,5 +1,5 @@
 using LangChain.Databases.InMemory;
-using LangChain.Providers.OpenAI;
+using LangChain.Providers.OpenAI.Predefined;
 using LangChain.Sources;
 using LangChain.VectorStores;
 
@@ -56,7 +56,7 @@ public partial class RetrievalAugmentedGenerationViewModel(
 			var documents = await PdfPigPdfSource.FromStreamAsync(
 				stream, cancellationToken);
 			
-			var embeddings = new Gpt35TurboModel(ApiKey);
+			var embeddings = new TextEmbeddingV3SmallModel(ApiKey);
 			var database = await InMemoryVectorStore.CreateIndexFromDocuments(
 				embeddings, documents);
 			_database = database.Store;
@@ -87,7 +87,7 @@ public partial class RetrievalAugmentedGenerationViewModel(
 			
 			Status = "Creating embeddings...";
 			
-			var embeddings = new Gpt35TurboModel(ApiKey);
+			var embeddings = new TextEmbeddingV3SmallModel(ApiKey);
 			var database = await InMemoryVectorStore.CreateIndexFromDocuments(
 				embeddings, documents);
 			_database = database.Store;
@@ -137,7 +137,7 @@ public partial class RetrievalAugmentedGenerationViewModel(
 			Status = "Generating answer...";
 			
 			var response = await gpt35.GenerateAsync(
-				Prompt, CancellationToken.None).ConfigureAwait(false);
+				Prompt, cancellationToken: CancellationToken.None).ConfigureAwait(false);
         
 			Answer = response.LastMessageContent;
 			Status = "Answer generated";
