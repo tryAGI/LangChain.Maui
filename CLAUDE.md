@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # Build the entire solution
-dotnet build LangChain.Maui.sln
+dotnet build LangChain.Maui.slnx
 
 # Build the provider library only
 dotnet build src/libs/LangChain.Providers.Maui/LangChain.Providers.Maui.csproj
