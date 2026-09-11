@@ -10,6 +10,9 @@ jobs:
     uses: HavenDV/workflows/.github/workflows/dotnet_build-test-publish.yml@main
     with:
       dotnet-version: 8.0.x
+      project-path: src/libs/LangChain.Providers.Maui/LangChain.Providers.Maui.csproj
+      additional-project-path: samples/LangChain.Samples.Maui/LangChain.Samples.Maui.csproj
+      run-tests: false
       os: windows-latest
       generate-build-number: false
       conventional-commits-publish-conditions: false
