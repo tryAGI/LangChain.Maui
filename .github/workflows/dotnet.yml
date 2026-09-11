@@ -11,7 +11,7 @@ jobs:
     with:
       dotnet-version: 8.0.x
       project-path: src/libs/LangChain.Providers.Maui/LangChain.Providers.Maui.csproj
-      additional-project-path: samples/LangChain.Samples.Maui/LangChain.Samples.Maui.csproj
+      additional-command: dotnet build samples/LangChain.Samples.Maui/LangChain.Samples.Maui.csproj --framework net8.0-windows10.0.19041.0 --configuration Release --nologo
       run-tests: false
       os: windows-latest
       generate-build-number: false
