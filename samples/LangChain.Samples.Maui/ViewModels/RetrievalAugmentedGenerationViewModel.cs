@@ -144,12 +144,16 @@ public partial class RetrievalAugmentedGenerationViewModel(
 				 """;
 			Status = "Generating answer...";
 			
-			var response = await llm.GenerateAsync(
+			ChatResponse? response = null;
+			await foreach (var update in llm.GenerateAsync(
 				Prompt,
 				settings: (ChatSettings?)null,
-				cancellationToken: cancellationToken).ConfigureAwait(false);
-        
-			Answer = response.LastMessageContent;
+				cancellationToken: cancellationToken).ConfigureAwait(false))
+			{
+				response = update;
+			}
+
+			Answer = response?.LastMessageContent ?? string.Empty;
 			Status = "Answer generated";
 		}
 		catch (Exception e)
