@@ -145,7 +145,9 @@ public partial class RetrievalAugmentedGenerationViewModel(
 			Status = "Generating answer...";
 			
 			var response = await llm.GenerateAsync(
-				Prompt, cancellationToken: CancellationToken.None).ConfigureAwait(false);
+				Prompt,
+				settings: (ChatSettings?)null,
+				cancellationToken: cancellationToken).ConfigureAwait(false);
         
 			Answer = response.LastMessageContent;
 			Status = "Answer generated";
