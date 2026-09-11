@@ -9,6 +9,7 @@ jobs:
     name: Build, test and publish
     uses: HavenDV/workflows/.github/workflows/dotnet_build-test-publish.yml@main
     with:
+      dotnet-version: 8.0.x
       os: windows-latest
       generate-build-number: false
       conventional-commits-publish-conditions: false
