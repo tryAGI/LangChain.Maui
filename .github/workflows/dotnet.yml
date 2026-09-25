@@ -4,6 +4,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build-test-publish:
     name: Build, test and publish
@@ -20,5 +23,18 @@ jobs:
       install-tizen: true
       enable-caching: false
       additional-test-arguments: '--logger GitHubActions'
+    secrets:
+      nuget-key: ${{ secrets.NUGET_KEY }}
+
+  auto-stable-release:
+    needs: [build-test-publish]
+    if: github.ref == 'refs/heads/main'
+    uses: tryAGI/workflows/.github/workflows/auto-stable-release.yml@main
+    with:
+      project-path: src/libs/LangChain.Providers.Maui/LangChain.Providers.Maui.csproj
+      os: windows-latest
+      dotnet-version: 8.0.x
+      workloads: maui
+      candidate-source: build
     secrets:
       nuget-key: ${{ secrets.NUGET_KEY }}
